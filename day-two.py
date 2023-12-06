@@ -1,3 +1,4 @@
+from utils import debouce
 from machine import Pin
 import time
 
@@ -12,21 +13,6 @@ onboard_led.value(0)
 
 red_on = False
 green_on = False
-
-
-def debouce(fn):
-    last_interrupt_time = time.ticks_ms()
-
-    def run():
-        nonlocal last_interrupt_time
-        last_interrupt_time = time.ticks_ms()
-        fn()
-
-    return (
-        lambda _: run()
-        if time.ticks_diff(time.ticks_ms(), last_interrupt_time) > 300
-        else None
-    )
 
 
 def toggle_green():
