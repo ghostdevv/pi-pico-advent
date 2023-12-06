@@ -1,22 +1,10 @@
-from utils import debouce
+from utils import debouce, CounterSimple
 from machine import Pin
 import time
 
 dec_button = Pin(0, Pin.IN, Pin.PULL_DOWN)
 inc_button = Pin(1, Pin.IN, Pin.PULL_DOWN)
 onboard_led = Pin(25, Pin.OUT)
-
-
-class CounterSimple:
-    def __init__(self, leds: list[Pin]):
-        self.count = 0
-        self.leds = leds
-        self.set(0)
-
-    def set(self, new_count: int):
-        self.count = new_count
-        for i, led in enumerate(self.leds):
-            led.value(1 if i < self.count else 0)
 
 
 counter = CounterSimple(
