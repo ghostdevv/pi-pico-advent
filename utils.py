@@ -2,7 +2,7 @@ from machine import Pin
 import time
 
 
-def debouce(fn):
+def debounce(fn):
     last_interrupt_time = time.ticks_ms()
 
     def run(pin: Pin):

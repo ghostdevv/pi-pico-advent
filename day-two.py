@@ -1,4 +1,4 @@
-from utils import debouce
+from utils import debounce
 from machine import Pin
 import time
 
@@ -25,8 +25,8 @@ def toggle_red():
     red_on = not red_on
 
 
-green_button.irq(handler=debouce(toggle_green), trigger=Pin.IRQ_RISING)
-red_button.irq(handler=debouce(toggle_red), trigger=Pin.IRQ_RISING)
+green_button.irq(handler=debounce(toggle_green), trigger=Pin.IRQ_RISING)
+red_button.irq(handler=debounce(toggle_red), trigger=Pin.IRQ_RISING)
 
 while True:
     time.sleep_ms(500)

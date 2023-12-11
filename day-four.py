@@ -1,4 +1,4 @@
-from utils import debouce, CounterSimple
+from utils import debounce, CounterSimple
 from machine import Pin
 import time
 
@@ -18,7 +18,7 @@ counter = CounterSimple(
 )
 
 
-@debouce
+@debounce
 def increment():
     global counter
 
@@ -28,7 +28,7 @@ def increment():
     print(f"Count is {counter.count}")
 
 
-@debouce
+@debounce
 def decrement():
     global counter
 
